@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+陈宫！！
+<div  >这是要显示的信息。。。</div>
+<hr/>
+
+<!--这里面的意思是div有id和class， 我可以通过 th：id和th:class来修改-->
+<div id="${hello1}" class="myDiv" th:id="${hello}" th:class="${hello}" th:text="${hello}">这是要显示的信息。。。</div>
+<!--/*@thymesVar id="hello" type=""*/-->
+<hr/><!--换行-->
+
+
+<!--th:text  吧div里面的文本内容设置为-->
+<!--不会转移特殊字符， 一些特殊的字符，就按照特殊字符的字面量生成-->
+<div th:text="${hello}"></div>
+<!--会转移特殊字符， 一些特殊字符的含义会被表达（转译出来）
+即变成大标题的那种形式-->
+<div th:utext="${hello}"></div>
+<!--这个是相当与 for（里面的元素的类型 和 e：数组或集合名字）{sout（e）}-->
+<!--th:text就是写<h4>里面的内容的-->
+<h4 th:text="${user}" th:each="user:${users}"></h4>
+
+
+<h5>
+    <span th:each="user:${users}"> [[${user}]] </span>
+</h5>
+
+</body>
+</html>
